@@ -25,6 +25,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Stories currently use illustrated link cards without separate cover-photo layers or visible social embeds.
 - The header music control plays Malikah's YouTube playlist through a visually hidden embed. Playback begins only after explicit user interaction and persists while navigating between portfolio screens.
 - Résumé category columns, including Skills, are top-aligned with matching header placement.
+- GitHub Pages deploys the production client at `/me/` from `main` via `.github/workflows/deploy-pages.yml`; all runtime public-file links must respect `import.meta.env.BASE_URL`.
 - Social content must clearly distinguish Personal, Professional, and Writing channels, including coming-soon launch states.
 - About should present Malikah's Grenadian background and playful personal facts as an interactive game-like experience.
 - Do not add case-study CTAs.
