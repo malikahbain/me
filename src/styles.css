@@ -177,3 +177,77 @@
 /* All résumé category columns share the same top-aligned structure. */
 .resume-group.skills-group{justify-content:flex-start}
 .skills-group .skill-cloud{margin-top:14px;margin-bottom:18px}
+
+/* Keep the Archives category board horizontal; the full document follows below. */
+.resume-screen {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--gold) var(--paper);
+}
+.resume-board {
+  height: auto;
+  min-height: 340px;
+  max-width: 1230px;
+  margin-inline: auto;
+  overflow-y: visible;
+  scroll-snap-type: x proximity;
+}
+.resume-group { flex-basis: min(540px, 80vw); }
+.education-group { flex-basis: min(440px, 80vw); }
+.skills-group { flex-basis: min(340px, 80vw); }
+.leadership-group { flex-basis: min(540px, 80vw); }
+.resume-group .resume-card { grid-template-columns: 26px minmax(0, 1fr); gap: 4px 8px; }
+.resume-group .resume-card time { grid-column: 2; }
+.resume-group .resume-card h3 { font-size: 17px; overflow-wrap: anywhere; }
+.resume-group .resume-card p, .resume-group .resume-card time { font-size: 12px; }
+.resume-group .achievement-description, .resume-group .achievement-note { grid-column: 2; }
+.resume-group .achievement-description { margin-top: 8px; }
+.resume-group .achievement-note { font-style: italic; margin-top: 4px; }
+.skills-group .skill-cloud span { max-width: 100%; overflow-wrap: anywhere; }
+.resume-scroll-hint {
+  position: relative;
+  inset: auto;
+  max-width: 1230px;
+  margin: 12px auto 32px;
+  font-size: 12px;
+}
+.resume-document {
+  position: relative;
+  z-index: 4;
+  max-width: 1230px;
+  margin: 0 auto 24px;
+  padding: clamp(16px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.resume-document h2 { font-size: clamp(28px, 3vw, 40px); margin: 10px 0; }
+.resume-document > p { color: var(--muted); line-height: 1.6; }
+.resume-document .actions { flex-wrap: wrap; margin: 18px 0 24px; }
+.resume-document a { max-width: 100%; overflow-wrap: anywhere; }
+.resume-pdf {
+  display: block;
+  width: 100%;
+  height: 900px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+.resume-pdf > p { padding: 24px; }
+.resume-pdf a { color: var(--blue); }
+.pdf-mobile-note { display: none; }
+@media (max-width: 900px) {
+  .resume-group { flex-basis: min(540px, 80vw); }
+}
+@media (max-width: 620px) {
+  .resume-group { flex-basis: calc(100vw - 52px); }
+  .resume-group > header h3 { font-size: 20px; }
+  .resume-group .resume-card { padding: 12px 9px; }
+  .resume-scroll-hint { align-items: flex-start; }
+  .resume-scroll-hint svg { flex-shrink: 0; }
+  .resume-pdf { display: none; }
+  .pdf-mobile-note { display: block; }
+  .resume-document .actions { align-items: flex-start; flex-direction: column; }
+}

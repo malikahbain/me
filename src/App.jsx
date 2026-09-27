@@ -7,6 +7,7 @@ import {
 } from "@phosphor-icons/react";
 
 const BASE = import.meta.env.BASE_URL;
+const RESUME_PDF = `${BASE}Malikah-Bain-Resume.pdf`;
 
 const PROFILE = {
   email: "malikahbain@gmail.com",
@@ -59,12 +60,118 @@ const apps = [
 const projectFr={SourceFinder:"Plateforme de recherche assistée par IA qui retrouve les sources originales derrière les affirmations en ligne et produit des rapports structurés.",ProjectScribe:"Espace documentaire qui aide les consultants et gestionnaires à créer, gérer et exporter des documents de projet soignés."};
 const appFr={"Community Index":"Répertoires et ressources consultables pour les communautés.",Rebalance:"Un casse-tête quotidien de physique où chaque mouvement compte.","OC Transpo Tracker":"Informations en temps réel sur le transport à Ottawa dans Reddit.",SlideReveal:"Comparaisons interactives d’images avant et après."};
 const experiences = [
+  [
+    "Specialist, Part-Time",
+    "Apple, Bayshore Shopping Centre",
+    "Oct 2025 — Present",
+  ],
   ["AI Math Testing Specialist", "Scale AI", "Aug 2024 — Present"],
-  ["Specialist, Part-Time", "Apple, Bayshore Shopping Centre", "Oct 2025 — Present"],
   ["50/50 Seller", "OSEG Foundation", "Apr 2022 — Jun 2022"],
-  ["Technical Support Assistant", "Law Office of Dick Denison George", "Sep 2019 — Aug 2021"],
 ];
-const resumeContent={en:{experience:"Experience",education:"Education",skills:"Skills",roles:experiences,schools:[["Bachelor of Science","Computer Science · Carleton University","Aug 2021 — Present"],["Associate of Applied Science","Information Technology · TA Marryshow Community College","Aug 2016 — Jul 2018 · GPA 3.76, Cum Laude"]],skillList:["Microsoft Office Suite","Customer Service","Time Management","Point of Sale accuracy","Technical Support","AI Evaluation"]},fr:{experience:"Expérience",education:"Formation",skills:"Compétences",roles:[["Spécialiste, temps partiel","Apple, Bayshore Shopping Centre","Oct 2025 — Présent"],["Spécialiste en tests mathématiques IA","Scale AI","Août 2024 — Présent"],["Vendeuse 50/50","Fondation OSEG","Avr 2022 — Juin 2022"],["Assistante au soutien technique","Cabinet juridique Dick Denison George","Sept 2019 — Août 2021"]],schools:[["Baccalauréat ès sciences","Informatique · Université Carleton","Août 2021 — Présent"],["Diplôme associé en sciences appliquées","Technologies de l’information · TA Marryshow Community College","Août 2016 — Juil 2018 · Moyenne 3,76, avec distinction"]],skillList:["Suite Microsoft Office","Service à la clientèle","Gestion du temps","Précision aux points de vente","Soutien technique","Évaluation de l’IA"]}};
+const resumeContent = {
+  en: {
+    experience: "Experience",
+    education: "Education",
+    skills: "Skills",
+    roles: experiences,
+    schools: [
+      [
+        "Bachelor of Science",
+        "Computer Science · Carleton University",
+        "Aug 2021 — Present",
+      ],
+      [
+        "Associate of Applied Science",
+        "Information Technology · TA Marryshow Community College",
+        "Aug 2016 — Jul 2018 · GPA 3.76, Cum Laude",
+      ],
+    ],
+    skillList: [
+      "Microsoft Office Suite",
+      "Customer Service",
+      "Time Management",
+      "Point of Sale accuracy",
+      "Technical Support",
+      "AI Evaluation",
+    ],
+  },
+  fr: {
+    experience: "Expérience",
+    education: "Formation",
+    skills: "Compétences",
+    roles: [
+      [
+        "Spécialiste, temps partiel",
+        "Apple, Bayshore Shopping Centre",
+        "Oct 2025 — Présent",
+      ],
+      [
+        "Spécialiste en tests mathématiques IA",
+        "Scale AI",
+        "Août 2024 — Présent",
+      ],
+      ["Vendeuse 50/50", "Fondation OSEG", "Avr 2022 — Juin 2022"],
+    ],
+    schools: [
+      [
+        "Baccalauréat ès sciences",
+        "Informatique · Université Carleton",
+        "Août 2021 — Présent",
+      ],
+      [
+        "Diplôme associé en sciences appliquées",
+        "Technologies de l’information · TA Marryshow Community College",
+        "Août 2016 — Juil 2018 · Moyenne 3,76, avec distinction",
+      ],
+    ],
+    skillList: [
+      "Suite Microsoft Office",
+      "Service à la clientèle",
+      "Gestion du temps",
+      "Précision aux points de vente",
+      "Soutien technique",
+      "Évaluation de l’IA",
+    ],
+  },
+};
+
+// Leadership and academic achievements are separate from paid employment.
+Object.assign(resumeContent.en, {
+  leadership: "Leadership & Awards",
+  achievements: [
+    [
+      "FIRST Global Challenge — Team Grenada",
+      "Team Member — Mechanical Build Lead",
+      "2018",
+      "Represented Grenada at the 2018 FIRST Global Challenge in Mexico City, Mexico. Primarily responsible for hands-on robot construction and assembly: building and fitting mechanical components, troubleshooting, and refining the robot with the team.",
+      "Mechanical build describes my contribution, rather than an official competition title.",
+    ],
+    [
+      "Grenada National Knowledge Bowl",
+      "2nd Place — Team Competition",
+      "2016",
+      "Member of the team that placed second in Grenada’s national Knowledge Bowl competition.",
+    ],
+  ],
+});
+Object.assign(resumeContent.fr, {
+  leadership: "Leadership et distinctions",
+  achievements: [
+    [
+      "FIRST Global Challenge — Équipe Grenade",
+      "Membre de l’équipe — Responsable de la construction mécanique",
+      "2018",
+      "Représentation de la Grenade au FIRST Global Challenge 2018 à Mexico, au Mexique. Contribution principale : construction et assemblage du robot, ajustement des composants mécaniques, dépannage et amélioration avec l’équipe.",
+      "La construction mécanique décrit ma contribution, et non un titre officiel de la compétition.",
+    ],
+    [
+      "Grenada National Knowledge Bowl",
+      "2e place — Compétition par équipes",
+      "2016",
+      "Membre de l’équipe arrivée deuxième au concours national Knowledge Bowl de la Grenade.",
+    ],
+  ],
+});
 
 function LoadingScreen({onDone,lang}){const t=copy[lang];useEffect(()=>{const id=setTimeout(onDone,2200);return()=>clearTimeout(id)},[onDone]);return <div className="loader"><div className="loader-shade"/><div className="steam s1"/><div className="steam s2"/><div className="led l1"/><div className="led l2"/><div className="spark"/><div className="loader-card"><small>{lang==="en"?"THE WORKBENCH":"L’ÉTABLI"}</small><h1>{lang==="en"?"Tinkering":"Bricolage"}<span className="blink">...</span></h1><p>{lang==="en"?"Currently building something interesting.":"Construction de quelque chose d’intéressant."}</p><div className="progress"><i/></div><button onClick={onDone}>{t.begin}</button></div></div>}
 function Crest(){return <span className="crest"><img src={`${BASE}assets/malikah-crest.png`} alt="" /></span>}
@@ -80,7 +187,7 @@ export function App(){
   useEffect(()=>{const onKey=e=>{if(e.key==="ArrowRight")move(1);if(e.key==="ArrowLeft")move(-1)};window.addEventListener("keydown",onKey);return()=>window.removeEventListener("keydown",onKey)});
   const go=i=>{if(i===page||transitioning)return;setDetail(null);setMenu(false);setPreviousPage(page);setTransitioning(true);setPage(i);setTimeout(()=>{setTransitioning(false);setPreviousPage(null)},1350)};
   const move=d=>go(Math.max(0,Math.min(screens.length-1,page+d)));
-  const wheel=e=>{if(Math.abs(e.deltaY)<20||wheelLock.current)return;if(page===6&&resumeBoard.current){const board=resumeBoard.current,max=board.scrollWidth-board.clientWidth,atStart=board.scrollLeft<=2,atEnd=board.scrollLeft>=max-2;if((e.deltaY>0&&!atEnd)||(e.deltaY<0&&!atStart)){board.scrollBy({left:e.deltaY*1.15,behavior:"smooth"});return}}wheelLock.current=true;move(e.deltaY>0?1:-1);setTimeout(()=>wheelLock.current=false,1300)};
+  const wheel=e=>{if(Math.abs(e.deltaY)<20||wheelLock.current)return;if(page===6)return;wheelLock.current=true;move(e.deltaY>0?1:-1);setTimeout(()=>wheelLock.current=false,1300)};
   const mapMove=e=>{const r=e.currentTarget.getBoundingClientRect();const nx=(e.clientX-r.left)/r.width-.5,ny=(e.clientY-r.top)/r.height-.5;setMapPan({x:-nx*100,y:-ny*58})};
   const toggleMusic=()=>{if(!musicStarted){setMusicStarted(true);setMusicOn(true);return}const next=!musicOn;musicPlayer.current?.contentWindow?.postMessage(JSON.stringify({event:"command",func:next?"playVideo":"pauseVideo",args:[]}),"https://www.youtube.com");setMusicOn(next)};
   const screenClass=(name,index)=>`screen ${name} ${page===index?"is-active":""} ${transitioning&&previousPage===index?"is-exiting":""}`;
@@ -96,8 +203,180 @@ export function App(){
       <section className={`screen apps-screen ${page===3?"is-active":""}`}><PageTitle kicker={L("THE INVENTOR’S VILLAGE","LE VILLAGE DES INVENTEURS")} title={t.apps} sub={t.appsSub}/><a className="github-more" href={PROFILE.devvit}>{L("See more on Devvit","Voir plus sur Devvit")} <ArrowRight/></a><div className="apps-grid">{apps.map(a=><button className="app-card" onClick={()=>setDetail({...a,place:"Devvit App",displayCopy:L(a.copy,appFr[a.title]),tags:["Devvit","TypeScript","React"],bullets:lang==="en"?[a.copy,"Designed for real Reddit communities","Turns passive browsing into participation","Responsive and accessible interaction"]:[appFr[a.title],"Conçue pour de vraies communautés Reddit","Transforme la navigation passive en participation","Interaction réactive et accessible"]})} key={a.id}><a.icon weight="duotone"/><h3>{a.title}</h3><p>{L(a.copy,appFr[a.title])}</p><b>{t.details}<ArrowRight/></b></button>)}</div></section>
       <section className={`screen about-screen ${page===4?"is-active":""}`}><div className="about-card"><span className="kicker"><Campfire/> {L("THE CAMPFIRE","LE FEU DE CAMP")}</span><h2>{t.about}</h2><p>{t.aboutBody}</p><div className="about-facts"><span><GraduationCap/>{L("Carleton University · Computer Science","Université Carleton · Informatique")}</span><span><Briefcase/>{L("Content creator · brand deals · live events","Créatrice de contenu · partenariats · événements")}</span><span><Compass/>{L("Grenada → Ottawa, Ontario","Grenade → Ottawa, Ontario")}</span></div></div><div className={`fact-game ${quizDone?"revealed":"quiz-mode"}`}>{quizDone?<><p>{L("UNLOCKED: FUN FACTS","DÉBLOQUÉ : ANECDOTES")}</p>{(lang==="en"?[["26","years old",Sparkle],["Twin","identical twin",UsersThree],["Grenada","born + raised",Compass],["Music","guitar + singing",Guitar],["Creator","content + events",Article],["Curious","history · politics · geography",Books],["Reader","always learning",BookOpen],["Explore","historical sites",MapTrifold]]:[["26","ans",Sparkle],["Jumelle","jumelle identique",UsersThree],["Grenade","née et élevée",Compass],["Musique","guitare et chant",Guitar],["Créatrice","contenu et événements",Article],["Curieuse","histoire · politique · géographie",Books],["Lectrice","toujours apprendre",BookOpen],["Explorer","sites historiques",MapTrifold]]).map(([a,b,Icon])=><button key={b}><Icon weight="duotone"/><strong>{a}</strong><span>{b}</span></button>)}</>:<AboutQuiz lang={lang} onComplete={()=>setQuizDone(true)}/>}</div><div className="fireflies">{Array.from({length:12},(_,i)=><i key={i} style={{"--i":i}}/>)}</div></section>
       <section className={`screen stories-screen ${page===5?"is-active":""}`} id="blog"><PageTitle kicker={L("PERSONAL · PROFESSIONAL · WRITING","PERSONNEL · PROFESSIONNEL · ÉCRITS")} title={t.stories} sub={L("My content has reached millions of views and led to brand collaborations and live event opportunities.","Mon contenu a obtenu des millions de vues et mené à des collaborations de marque et à des événements.")}/><div className="social-collections"><div className="story-group"><h3>{L("Personal adventures","Aventures personnelles")}</h3><div className="story-grid personal"><a href={PROFILE.tiktok} target="_blank" rel="noreferrer"><TiktokLogo weight="fill"/><span>TikTok</span><strong>@aestheticadventuresss · {L("featured video","vidéo vedette")}</strong></a><a href={PROFILE.instagram} target="_blank" rel="noreferrer"><InstagramLogo weight="fill"/><span>Instagram</span><strong>@aestheticadventuresss</strong></a></div></div><div className="story-group"><h3>{L("Professional work","Travail professionnel")}</h3><div className="story-grid professional"><a href={PROFILE.github}><GithubLogo weight="fill"/><span>GitHub</span><strong>{L("Projects & source code","Projets et code source")}</strong></a><a href={PROFILE.linkedin}><LinkedinLogo weight="fill"/><span>LinkedIn</span><strong>{L("Career & community","Carrière et communauté")}</strong></a></div></div><div className="story-group writing"><h3>{L("Field notes","Carnet de route")}</h3><div className="story-grid"><a href={PROFILE.blog}><Article weight="fill"/><span>{L("Blog posts","Articles")}</span><strong>{L("Engineering, Devvit & exploration","Ingénierie, Devvit et exploration")} →</strong></a></div></div></div></section>
-      <section className={`screen resume-screen ${page===6?"is-active":""}`}><PageTitle kicker="THE ARCHIVES" title={t.resumeTitle} sub={`${resume.experience} · ${resume.education} · ${resume.skills}`}/><div className="resume-board" ref={resumeBoard}><section className="resume-group"><header><Briefcase weight="duotone"/><div><small>01</small><h3>{resume.experience}</h3></div></header><div className="resume-stack">{resume.roles.map((x,i)=><article className="resume-card role" key={x[0]}><small>{String(i+1).padStart(2,"0")}</small><div><h3>{x[0]}</h3><p>{x[1]}</p></div><time>{x[2]}</time></article>)}</div></section><section className="resume-group education-group"><header><GraduationCap weight="duotone"/><div><small>02</small><h3>{resume.education}</h3></div></header><div className="resume-stack">{resume.schools.map((x,i)=><article className="resume-card school" key={x[0]}><small>{String(i+1).padStart(2,"0")}</small><div><h3>{x[0]}</h3><p>{x[1]}</p></div><time>{x[2]}</time></article>)}</div></section><section className="resume-group skills-group"><header><Sparkle weight="duotone"/><div><small>03</small><h3>{resume.skills}</h3></div></header><div className="skill-cloud">{resume.skillList.map(x=><span key={x}>{x}</span>)}</div><a className="primary" href={`${BASE}Malikah-Bain-Resume.pdf`} download>{t.download}<DownloadSimple/></a><button className="next-destination" onClick={()=>go(7)}>{lang==="en"?"Continue to Contact":"Continuer vers Contact"}<ArrowRight/></button></section></div><div className="resume-scroll-hint"><ArrowRight/> {lang==="en"?"Scroll through each category; continue scrolling at the end to travel onward":"Parcourez chaque catégorie; continuez à défiler pour poursuivre le voyage"}</div></section>
-      <section className={`screen contact-screen ${page===7?"is-active":""}`}><div className="contact-card"><span className="kicker">{L("THE GUILD HALL","LA GUILDE")}</span><h2>{t.contact}</h2><p>{L("I’m looking for a team where curiosity, craft, and useful technology matter.","Je cherche une équipe où la curiosité, le savoir-faire et la technologie utile comptent.")}</p><a className="primary" href={`mailto:${PROFILE.email}`}>{L("Email me","Écrivez-moi")}<PaperPlaneTilt/></a><div><a href={PROFILE.github}><GithubLogo/>GitHub</a><a href={PROFILE.linkedin}><LinkedinLogo/>LinkedIn</a><a href={`${BASE}Malikah-Bain-Resume.pdf`}><FileText/>{L("Résumé","CV")}</a></div></div></section>
+      <section
+            className={`screen resume-screen ${page === 6 ? "is-active" : ""}`}
+          >
+            <PageTitle
+              kicker="THE ARCHIVES"
+              title={t.resumeTitle}
+              sub={`${resume.experience} · ${resume.education} · ${resume.skills} · ${resume.leadership}`}
+            />
+            <div className="resume-board" ref={resumeBoard}>
+              <section className="resume-group">
+                <header>
+                  <Briefcase weight="duotone" />
+                  <div>
+                    <small>01</small>
+                    <h3>{resume.experience}</h3>
+                  </div>
+                </header>
+                <div className="resume-stack">
+                  {resume.roles.map((x, i) => (
+                    <article className="resume-card role" key={x[0]}>
+                      <small>{String(i + 1).padStart(2, "0")}</small>
+                      <div>
+                        <h3>{x[0]}</h3>
+                        <p>{x[1]}</p>
+                      </div>
+                      <time>{x[2]}</time>
+                    </article>
+                  ))}
+                </div>
+              </section>
+              <section className="resume-group education-group">
+                <header>
+                  <GraduationCap weight="duotone" />
+                  <div>
+                    <small>02</small>
+                    <h3>{resume.education}</h3>
+                  </div>
+                </header>
+                <div className="resume-stack">
+                  {resume.schools.map((x, i) => (
+                    <article className="resume-card school" key={x[0]}>
+                      <small>{String(i + 1).padStart(2, "0")}</small>
+                      <div>
+                        <h3>{x[0]}</h3>
+                        <p>{x[1]}</p>
+                      </div>
+                      <time>{x[2]}</time>
+                    </article>
+                  ))}
+                </div>
+              </section>
+              <section className="resume-group skills-group">
+                <header>
+                  <Sparkle weight="duotone" />
+                  <div>
+                    <small>03</small>
+                    <h3>{resume.skills}</h3>
+                  </div>
+                </header>
+                <div className="skill-cloud">
+                  {resume.skillList.map((x) => (
+                    <span key={x}>{x}</span>
+                  ))}
+                </div>
+                <a className="primary" href={RESUME_PDF} download>
+                  {t.download}
+                  <DownloadSimple />
+                </a>
+                <button className="next-destination" onClick={() => go(7)}>
+                  {lang === "en"
+                    ? "Continue to Contact"
+                    : "Continuer vers Contact"}
+                  <ArrowRight />
+                </button>
+              </section>
+              <section className="resume-group leadership-group">
+                <header>
+                  <UsersThree weight="duotone" />
+                  <div>
+                    <small>04</small>
+                    <h3>{resume.leadership}</h3>
+                  </div>
+                </header>
+                <div className="resume-stack">
+                  {resume.achievements.map((x, i) => (
+                    <article className="resume-card achievement" key={x[0]}>
+                      <small>{String(i + 1).padStart(2, "0")}</small>
+                      <div>
+                        <h3>{x[0]}</h3>
+                        <p>{x[1]}</p>
+                      </div>
+                      <time>{x[2]}</time>
+                      <p className="achievement-description">{x[3]}</p>
+                      {x[4] && <p className="achievement-note">{x[4]}</p>}
+                    </article>
+                  ))}
+                </div>
+              </section>
+            </div>
+            <div className="resume-scroll-hint">
+              <ArrowRight />{" "}
+              {lang === "en"
+                ? "Swipe or scroll horizontally through the categories, then scroll down for the full résumé"
+                : "Parcourez les catégories horizontalement, puis descendez pour consulter le CV complet"}
+            </div>
+            <section
+              className="resume-document"
+              aria-labelledby="resume-document-title"
+            >
+              <span className="kicker">
+                {L("THE ARCHIVES · DOCUMENT", "LES ARCHIVES · DOCUMENT")}
+              </span>
+              <h2 id="resume-document-title">
+                {L("Full Résumé", "CV complet")}
+              </h2>
+              <p>
+                {L(
+                  "View the complete résumé below or download a PDF copy.",
+                  "Consultez le CV complet ci-dessous ou téléchargez une copie PDF.",
+                )}
+              </p>
+              <div className="actions">
+                <a
+                  className="secondary"
+                  href={RESUME_PDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {L("View résumé PDF", "Ouvrir le CV en PDF")}
+                  <FileText />
+                </a>
+                <a className="primary" href={RESUME_PDF} download>
+                  {t.download}
+                  <DownloadSimple />
+                </a>
+              </div>
+              <p className="pdf-mobile-note">
+                {L(
+                  "Open the PDF for a comfortable full-screen view on your device.",
+                  "Ouvrez le PDF pour une lecture confortable en plein écran sur votre appareil.",
+                )}
+              </p>
+              {page === 6 && (
+                <object
+                  className="resume-pdf"
+                  data={RESUME_PDF}
+                  type="application/pdf"
+                  title={L(
+                    "Full résumé PDF — Malikah Bain",
+                    "CV complet en PDF — Malikah Bain",
+                  )}
+                  aria-label={L(
+                    "Full résumé PDF — Malikah Bain",
+                    "CV complet en PDF — Malikah Bain",
+                  )}
+                >
+                  <p>
+                    {L(
+                      "Your browser cannot display this PDF inline.",
+                      "Votre navigateur ne peut pas afficher ce PDF ici.",
+                    )}{" "}
+                    <a
+                      href={RESUME_PDF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {L("Open PDF", "Ouvrir le PDF")}
+                    </a>
+                  </p>
+                </object>
+              )}
+            </section>
+          </section>
+                <section className={`screen contact-screen ${page===7?"is-active":""}`}><div className="contact-card"><span className="kicker">{L("THE GUILD HALL","LA GUILDE")}</span><h2>{t.contact}</h2><p>{L("I’m looking for a team where curiosity, craft, and useful technology matter.","Je cherche une équipe où la curiosité, le savoir-faire et la technologie utile comptent.")}</p><a className="primary" href={`mailto:${PROFILE.email}`}>{L("Email me","Écrivez-moi")}<PaperPlaneTilt/></a><div><a href={PROFILE.github}><GithubLogo/>GitHub</a><a href={PROFILE.linkedin}><LinkedinLogo/>LinkedIn</a><a href={RESUME_PDF}><FileText/>{L("Résumé","CV")}</a></div></div></section>
     </div></main>
     <div className="journey-controls"><button onClick={()=>move(-1)} disabled={page===0}><ArrowLeft/></button><span>{String(page+1).padStart(2,"0")} / {String(screens.length).padStart(2,"0")}</span><div className="dots">{screens.map((s,i)=><button aria-label={s} className={i===page?"active":""} onClick={()=>go(i)} key={s}/>)}</div><button onClick={()=>move(1)} disabled={page===screens.length-1}><ArrowRight/></button></div>
     {detail&&<div className="detail-layer"><button className="detail-close" onClick={()=>setDetail(null)}><ArrowLeft/>{t.back}</button><div className="detail-copy"><span>{detail.place==="Devvit App"?L("Devvit App","Application Devvit"):detail.place}</span><h2>{detail.title}</h2><p>{detail.displayCopy||detail.copy}</p><ul>{detail.bullets?.map(x=><li key={x}>{x}</li>)}</ul><div className="tags">{detail.tags?.map(x=><span key={x}>{x}</span>)}</div><div className="actions"><a className="primary" href={detail.place==="Devvit App"?PROFILE.reddit:PROFILE.devvit}>{detail.place==="Devvit App"?L("Open on Reddit","Ouvrir sur Reddit"):L("See more on Devvit","Voir plus sur Devvit")}<ArrowRight/></a></div></div><div className="detail-demo"><div className="demo-top"><i/><i/><i/><span>{detail.title}</span></div><div className="demo-sidebar">{(lang==="en"?["Overview","Reports","Sources","Settings"]:["Aperçu","Rapports","Sources","Paramètres"]).map(x=><span key={x}>{x}</span>)}</div><div className="demo-body"><h3>{detail.title} {L("Workspace","Espace de travail")}</h3>{[1,2,3,4].map(x=><div className="demo-row" key={x}><b/><span/><em/></div>)}</div></div></div>}
